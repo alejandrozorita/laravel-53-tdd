@@ -20,7 +20,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicExample()
     {
-        $name  = 'Alejandro Zorita';
+        $name = 'Alejandro Zorita';
         $email = 'info@alejandrozorita.me';
 
         $user = factory(\App\User::class)->create([
