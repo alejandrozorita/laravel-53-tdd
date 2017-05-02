@@ -12,7 +12,9 @@ script:
 
 before_install:
   - mysql -e 'CREATE DATABASE foro_test;'
-  - php artisan migrate;'
+  - composer self-update;
+  - composer install --no-interaction;
+  - php artisan migrate;
 
 
 env:
