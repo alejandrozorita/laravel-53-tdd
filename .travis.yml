@@ -9,3 +9,21 @@ install:
 
 script:
   vendor/bin/phpunit
+
+before_install:
+  - mysql -e 'CREATE DATABASE foro_test;'
+
+
+env:
+  - DB_CONNECTION=mysql
+  - DB_HOST=localhost
+  - DB_PORT=3306
+  - DB_DATABASE=foro_test
+  - DB_USERNAME=root
+  - DB_PASSWORD=
+
+services:
+  - mysql
+
+addons:
+  mariadb: '10.0'
