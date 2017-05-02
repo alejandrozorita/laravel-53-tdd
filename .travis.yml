@@ -12,7 +12,7 @@ script:
 
 before_install:
   - cp .env.travis .env
-  - mysql -e 'CREATE DATABASE foro_test;'
+  - mysql -e 'CREATE DATABASE foro_tests;'
   - composer install --prefer-source --no-interaction
   - php artisan migrate --force
 
