@@ -171,7 +171,6 @@ return [
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
         Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
 
-
         /*
          * Application Service Providers...
          */
