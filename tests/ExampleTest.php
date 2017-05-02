@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -23,11 +22,11 @@ class ExampleTest extends TestCase
     public function testBasicExample()
     {
 
-        $name = 'Alejandro Zorita';
+        $name  = 'Alejandro Zorita';
         $email = 'info@alejandrozorita.me';
 
         $user = factory(\App\User::class)->create([
-            'name' => $name,
+            'name'  => $name,
             'email' => $email
         ]);
 
