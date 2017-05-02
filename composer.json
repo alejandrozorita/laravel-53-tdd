@@ -9,6 +9,8 @@
         "caouecs/laravel-lang": "~3.0",
         "graham-campbell/markdown": "^7.1",
         "laravel/framework": "5.3.*",
+        "sentry/sentry": "^1.6",
+        "sentry/sentry-laravel": "^0.7.0",
         "styde/html": "~1.2"
     },
     "require-dev": {

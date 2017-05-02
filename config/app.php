@@ -169,6 +169,8 @@ return [
 
         Styde\Html\HtmlServiceProvider::class,
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
+        Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -227,6 +229,7 @@ return [
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
         'Markdown'     => GrahamCampbell\Markdown\Facades\Markdown::class,
+        'Sentry'       => Sentry\SentryLaravel\SentryFacade::class,
 
     ],
 

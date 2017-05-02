@@ -8,6 +8,8 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
+    private $sentryID;
+    
     /**
      * A list of the exception types that should not be reported.
      *
@@ -31,9 +33,13 @@ class Handler extends ExceptionHandler
      *
      * @return void
      */
-    public function report(Exception $exception)
+    public function report(Exception $e)
     {
-        parent::report($exception);
+        if ($this->shouldReport($e)) {
+            // bind the event ID for Feedback
+            $this->sentryID = app('sentry')->captureException($e);
+        }
+        parent::report($e);
     }
 
     /**
@@ -44,9 +50,13 @@ class Handler extends ExceptionHandler
      *
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+        return response()->view('errors.500', [
+            'sentryID' => $this->sentryID,
+        ], 500);
+    
+        //return parent::render($request, $exception);
     }
 
     /**
