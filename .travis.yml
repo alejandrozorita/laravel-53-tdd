@@ -21,3 +21,6 @@ services:
 
 addons:
   mariadb: '10.0'
+  
+directories:
+    - $HOME/.composer/cache/files
