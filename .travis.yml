@@ -12,6 +12,7 @@ script:
 
 before_install:
   - mysql -e 'CREATE DATABASE foro_test;'
+  - php artisan migrate;'
 
 
 env:
