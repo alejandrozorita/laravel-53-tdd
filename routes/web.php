@@ -26,12 +26,12 @@ Route::get('/home', 'HomeController@index');
  *
  * POSTS
  */
-Route::get('post/create', [
+Route::get('posts/create', [
     'uses' => 'CreatePostController@create',
-    'as' => 'post.create'
+    'as' => 'posts.create'
 ]);
 
-Route::post('post/create', [
+Route::post('posts/create', [
     'uses' => 'CreatePostController@store',
-    'as' => 'post.store'
+    'as' => 'posts.store'
 ]);
