@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-//use Illuminate\Foundation\Testing\DatabaseMigrations;
 
+//use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class FeaturesTestCase extends TestCase
 {
- 	// Cargamos todas las BD en cada ejecución dejando la BD en blanco
+    // Cargamos todas las BD en cada ejecución dejando la BD en blanco
     // use DatabaseMigrations;
     //
     // Usaremos este comando para evitar que teniendo

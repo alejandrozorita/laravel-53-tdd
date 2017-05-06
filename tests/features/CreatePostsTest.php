@@ -2,9 +2,8 @@
 
 class CreatePostsTest extends FeaturesTestCase
 {
-
     /**
-     * Creamos un posts
+     * Creamos un posts.
      */
     public function test_a_user_create_a_post()
     {
@@ -17,16 +16,16 @@ class CreatePostsTest extends FeaturesTestCase
 
         // When
         $this->visit(route('posts.create'))
-            ->type($titulo,'title')
+            ->type($titulo, 'title')
             ->type($contenido, 'content')
             ->press('Publicar');
 
         // Then
         $this->seeInDatabase('posts', [
-            'title' => $titulo,
+            'title'   => $titulo,
             'content' => $contenido,
             'pending' => true,
-            'user_id' => $user->id
+            'user_id' => $user->id,
         ]);
 
         // Test a user is redirect to the posts detail after creating it

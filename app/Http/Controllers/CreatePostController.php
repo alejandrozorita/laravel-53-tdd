@@ -12,7 +12,6 @@ class CreatePostController extends Controller
         return view('posts.create');
     }
 
-
     public function store(Request $request)
     {
         $post = new Post($request->all());
@@ -20,6 +19,7 @@ class CreatePostController extends Controller
         auth()->user()->posts()->save($post);
 
         return $post->title;
-        return view('posts.create',compact('post'));
+
+        return view('posts.create', compact('post'));
     }
 }
