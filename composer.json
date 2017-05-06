@@ -30,11 +30,12 @@
     },
     "autoload-dev": {
         "classmap": [
-            "tests/TestCase.php"
+            "tests/TestCase.php",
+            "tests/FeaturesTestCase.php"
         ]
     },
     "scripts": {
-        "post-root-package-install": [
+        "post-root-package-install": [ 
             "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
