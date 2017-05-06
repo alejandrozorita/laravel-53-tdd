@@ -13,7 +13,7 @@ class CreatePostsTest extends FeaturesTestCase
 
         $contenido = 'Este es el contenido';
 
-        $this->actingAs($this->defaultUser());
+        $this->actingAs($user = $this->defaultUser());
 
         // When
         $this->visit(route('posts.create'))
@@ -23,9 +23,10 @@ class CreatePostsTest extends FeaturesTestCase
 
         // Then
         $this->seeInDatabase('posts', [
-             'title' => $titulo,
-             'content' => $contenido,
-             'pending' => true
+            'title' => $titulo,
+            'content' => $contenido,
+            'pending' => true,
+            'user_id' => $user->id
         ]);
 
         // Test a user is redirect to the posts detail after creating it
