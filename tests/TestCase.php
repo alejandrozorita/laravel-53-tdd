@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class TestCase
+ * Class TestCase.
  */
 abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
@@ -32,13 +32,13 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
     }
 
     /**
-     * Genera un user by default
+     * Genera un user by default.
      *
      * @return object
      */
     public function defaultUser()
     {
-        if ($this->defaultUser){
+        if ($this->defaultUser) {
             return $this->defaultUser;
         }
 
