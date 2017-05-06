@@ -32,4 +32,48 @@ class CreatePostsTest extends FeaturesTestCase
         $this->see($titulo);
         //$this->seeInElement('h1',$titulo);
     }
+
+    public function test_creating_a_post_requires_authentication()
+    {
+        $this->visit(route('posts.create'))
+            ->seePageIs(route('login'));
+    }
+
+    public function test_a_guest_user_tries__create_a_post()
+    {
+        // Having
+        $titulo = 'Esta es una pregunta';
+
+        $contenido = 'Este es el contenido';
+
+        // When
+        $this->visit(route('posts.create'))
+            ->type($titulo, 'title')
+            ->type($contenido, 'content')
+            ->press('Publicar');
+
+        // Then
+        $this->seeInDatabase('posts', [
+            'title'   => $titulo,
+            'content' => $contenido,
+            'pending' => true,
+            'user_id' => $user->id,
+        ]);
+
+        // Test a user is redirect to the posts detail after creating it
+        $this->see($titulo);
+        //$this->seeInElement('h1',$titulo);
+    }
+
+    public function test_create_post_validation()
+    {
+        $this->actingAs($this->defaultUser())
+            ->visit(route('posts.create'))
+            ->press('Publicar')
+            ->seePageIs(route('posts.create'))
+            ->seeErrors([
+                'title'   => 'El campo título es obligatorio',
+                'content' => 'El campo contenido es obligatorio',
+            ]);
+    }
 }

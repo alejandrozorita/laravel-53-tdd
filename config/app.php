@@ -164,7 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
+         * Package Service Protitleviders...
          */
 
         Styde\Html\HtmlServiceProvider::class,
