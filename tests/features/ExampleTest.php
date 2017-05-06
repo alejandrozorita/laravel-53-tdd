@@ -3,13 +3,12 @@
 
 class ExampleTest extends FeaturesTestCase
 {
-
     /**
      * A basic functional test example.
      *
      * @return void
      */
-    function test_basic_example()
+    public function test_basic_example()
     {
         $name = 'Alejandro Zorita';
         $email = 'info@alejandrozorita.me';
