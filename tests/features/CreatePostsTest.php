@@ -2,9 +2,8 @@
 
 class CreatePostsTest extends FeaturesTestCase
 {
-
     /**
-     * Creamos un posts
+     * Creamos un posts.
      */
     public function test_a_user_create_a_post()
     {
@@ -34,21 +33,12 @@ class CreatePostsTest extends FeaturesTestCase
         //$this->seeInElement('h1',$titulo);
     }
 
-    /**
-     *
-     */
     public function test_creating_a_post_requires_authentication()
     {
-
         $this->visit(route('posts.create'))
             ->seePageIs(route('login'));
-
     }
 
-
-    /**
-     *
-     */
     public function test_a_guest_user_tries__create_a_post()
     {
         // Having
@@ -75,17 +65,15 @@ class CreatePostsTest extends FeaturesTestCase
         //$this->seeInElement('h1',$titulo);
     }
 
-
-    function test_create_post_validation()
+    public function test_create_post_validation()
     {
         $this->actingAs($this->defaultUser())
             ->visit(route('posts.create'))
             ->press('Publicar')
             ->seePageIs(route('posts.create'))
             ->seeErrors([
-                'title' => 'El campo título es obligatorio',
-                'content' => 'El campo contenido es obligatorio'
+                'title'   => 'El campo título es obligatorio',
+                'content' => 'El campo contenido es obligatorio',
             ]);
-
     }
 }

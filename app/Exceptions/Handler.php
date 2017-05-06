@@ -53,7 +53,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        if ($e->getCode()== 500){
+        if ($e->getCode() == 500) {
             return response()->view('errors.500', ['sentryID' => $this->sentryID], 500);
         }
 
@@ -70,7 +70,6 @@ class Handler extends ExceptionHandler
      */
     protected function unauthenticated($request, AuthenticationException $exception)
     {
-
         if ($request->expectsJson()) {
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
