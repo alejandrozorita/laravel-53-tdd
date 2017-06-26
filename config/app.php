@@ -178,7 +178,8 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        App\Providers\RouteServiceProvider::class
+
 
     ],
 
@@ -229,6 +230,7 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
         'Markdown'     => GrahamCampbell\Markdown\Facades\Markdown::class,
         'Sentry'       => Sentry\SentryLaravel\SentryFacade::class,
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
 
     ],
 
