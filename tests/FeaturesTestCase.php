@@ -13,4 +13,20 @@ class FeaturesTestCase extends TestCase
     // muchas migraciones, las pruebas se hagan lentas,
     // por lo que se ejecutarán en transanciones
     use DatabaseTransactions;
+
+
+
+
+    public function seeErrors(array $fields)
+    {
+        foreach ($fields as $name => $errors){
+            foreach ((array) $errors as $message)
+            {
+                $this->seeInElement(
+                    "#field_{$name}.has-error .help-block", $message
+                );
+            }
+        }
+
+    }
 }
