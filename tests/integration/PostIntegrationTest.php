@@ -16,7 +16,7 @@ class PostIntegrationTest extends TestCase
     public function test_a_slug_is_generated_and_saved_to_the_database()
     {
 
-        $post = factory(Post::class)->create([
+        $post = $this->createPost([
             'title' => 'Como instalar laravel',
         ]);
 

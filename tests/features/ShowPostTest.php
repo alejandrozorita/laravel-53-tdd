@@ -12,9 +12,11 @@ class ShowPostTest extends FeaturesTestCase
     {
         // Having
 
-        $user = $this->defaultUser();
+        $user = $this->defaultUser([
+            'name' => 'Alejandro Zorita',
+        ]);
 
-        $post = factory(App\Post::class)->make([
+        $post = $this->createPost([
             'title' => 'Este es el título del post',
             'content' => 'Este es el contenido del post',
             'user_id'     => $user->id,
@@ -25,7 +27,7 @@ class ShowPostTest extends FeaturesTestCase
         $this->visit($post->url)
         ->seeInElement('h1', $post->title)
         ->see($post->content)
-        ->see($user->name);
+        ->see('Alejandro Zorit');
     }
 
 
@@ -33,13 +35,9 @@ class ShowPostTest extends FeaturesTestCase
     {
         // Having
 
-        $user = $this->defaultUser();
-
-        $post = factory(App\Post::class)->make([
+        $post = $this->createPost([
             'title' => 'Old title',
         ]);
-
-        $user->posts()->save($post);
 
         $url = $post->url;
 
