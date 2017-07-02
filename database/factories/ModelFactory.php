@@ -30,8 +30,9 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'title'           => $faker->sentence,
-        'content'          => $faker->paragraph,
-        'pending'        => $faker->boolean(),
+        'title'       => $faker->sentence,
+        'content'     => $faker->paragraph,
+        'pending'     => $faker->boolean(),
+        'user_id'     => factory(\App\User::class)->create()->id,
     ];
 });
