@@ -26,7 +26,7 @@ class CreatePostsTest extends FeaturesTestCase
             'content' => $contenido,
             'pending' => true,
             'user_id' => $user->id,
-            'slug'    => 'esta-es-una-pregunta'
+            'slug'    => 'esta-es-una-pregunta',
         ]);
 
         // Test a user is redirect to the posts detail after creating it
@@ -34,16 +34,11 @@ class CreatePostsTest extends FeaturesTestCase
         //$this->seeInElement('h1',$titulo);
     }
 
-
-
     public function test_a_gust_user_tries_to_create_a_post()
     {
         $this->visit(route('posts.create'))
                 ->seePageIs(route('login'));
-
     }
-
-
 
     public function test_create_post_form_validate()
     {
@@ -52,13 +47,10 @@ class CreatePostsTest extends FeaturesTestCase
             ->press('Publicar')
             ->seePageIs(route('posts.create'))
             ->seeErrors([
-                'title' => 'El campo título es obligatorio',
-                'content' => 'El campo contenido es obligatorio'
+                'title'   => 'El campo título es obligatorio',
+                'content' => 'El campo contenido es obligatorio',
             ]);
     }
-
-
-
 
     /*ublic function test_creating_a_post_requireds_authentication()
     {

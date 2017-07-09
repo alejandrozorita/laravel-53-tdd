@@ -12,7 +12,7 @@
 */
 
 Route::get('/', [
-    'uses'  =>  'PostController@index',
+    'uses'  => 'PostController@index',
     'as'    => 'posts.show',
 ]);
 
@@ -22,7 +22,5 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('posts/{post}-{slug}', [
     'as'    => 'posts.show',
-    'uses'  =>  'PostController@show',
+    'uses'  => 'PostController@show',
 ])->where('post', '[0-9]+');
-
-

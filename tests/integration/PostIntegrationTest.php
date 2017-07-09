@@ -2,12 +2,10 @@
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-use App\Post;
-
 class PostIntegrationTest extends TestCase
 {
-
     use DatabaseTransactions;
+
     /**
      * A basic test example.
      *
@@ -15,12 +13,11 @@ class PostIntegrationTest extends TestCase
      */
     public function test_a_slug_is_generated_and_saved_to_the_database()
     {
-
         $post = $this->createPost([
             'title' => 'Como instalar laravel',
         ]);
 
-        $this->seeInDatabase('posts',[
+        $this->seeInDatabase('posts', [
             'slug' => $post->slug,
         ]);
 

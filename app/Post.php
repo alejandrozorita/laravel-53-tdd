@@ -2,22 +2,17 @@
 
 namespace App;
 
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'content','slug'];
-
-
-
+    protected $fillable = ['title', 'content', 'slug'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -27,7 +22,6 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-
     public function setTitleAttribute($value)
     {
         $this->attributes['title'] = $value;
@@ -35,14 +29,8 @@ class Post extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
-
     public function getUrlAttribute()
     {
         return route('posts.show', [$this->id, $this->slug]);
     }
-
-
-
 }
-
-

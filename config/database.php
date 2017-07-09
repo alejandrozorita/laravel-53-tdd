@@ -28,8 +28,6 @@ return [
 
     'default' => env('DB_CONNECTION', 'mysql'),
 
-
-
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -49,33 +47,33 @@ return [
     'connections' => [
 
         'mysql' => [
-            'driver'    => 'mysql',
-            'host'      => env('DB_HOST', '127.0.0.1'),
-            'port'      => env('DB_PORT', '3306'),
-            'database'  => env('DB_DATABASE', 'foro_bytecode'),
-            'username'  => env('DB_USERNAME', 'root'),
-            'password'  => env('DB_PASSWORD', 'root'),
+            'driver'       => 'mysql',
+            'host'         => env('DB_HOST', '127.0.0.1'),
+            'port'         => env('DB_PORT', '3306'),
+            'database'     => env('DB_DATABASE', 'foro_bytecode'),
+            'username'     => env('DB_USERNAME', 'root'),
+            'password'     => env('DB_PASSWORD', 'root'),
             'unix_socket'  => env('DB_SOCKET', ''),
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-            'strict'    => true,
-            'engine'    => null,
+            'charset'      => 'utf8',
+            'collation'    => 'utf8_unicode_ci',
+            'prefix'       => '',
+            'strict'       => true,
+            'engine'       => null,
         ],
 
         'mysql_tests' => [
-            'driver'    => 'mysql',
-            'host'      => env('DB_HOST', '127.0.0.1'),
-            'port'      => env('DB_PORT', '3306'),
-            'database'  => env('DB_DATABASE_TEST', 'foro_bytecode_test'),
-            'username'  => env('MYSQL_USER', env('DB_USERNAME', 'forge')),
-            'password'  => env('MYSQL_PASSWORD', env('DB_PASSWORD', '')),
+            'driver'       => 'mysql',
+            'host'         => env('DB_HOST', '127.0.0.1'),
+            'port'         => env('DB_PORT', '3306'),
+            'database'     => env('DB_DATABASE_TEST', 'foro_bytecode_test'),
+            'username'     => env('MYSQL_USER', env('DB_USERNAME', 'forge')),
+            'password'     => env('MYSQL_PASSWORD', env('DB_PASSWORD', '')),
             'unix_socket'  => env('DB_SOCKET', ''),
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-            'strict'    => true,
-            'engine'    => null,
+            'charset'      => 'utf8',
+            'collation'    => 'utf8_unicode_ci',
+            'prefix'       => '',
+            'strict'       => true,
+            'engine'       => null,
         ],
 
     ],
