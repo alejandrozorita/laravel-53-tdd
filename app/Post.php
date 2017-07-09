@@ -10,7 +10,7 @@ class Post extends Model
     protected $fillable = ['title', 'content', 'slug'];
 
     protected $casts = [
-        'pending' => 'boolean'
+        'pending' => 'boolean',
     ];
 
     public function user()

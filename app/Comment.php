@@ -22,7 +22,6 @@ class Comment extends Model
         $this->post->save();
     }
 
-
     public function getAnswerAttribute()
     {
         return $this->id === $this->post->answer_id;

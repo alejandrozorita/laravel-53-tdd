@@ -1,11 +1,11 @@
 <?php
 
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Comment;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
 class MarkCommentAsAnswerTest extends TestCase
 {
     use DatabaseTransactions;
-
 
     public function test_a_postc_can_be_answered()
     {
@@ -20,7 +20,6 @@ class MarkCommentAsAnswerTest extends TestCase
         $this->assertTrue($comment->fresh()->answer);
 
         $this->assertFalse($post->fresh()->pending);
-
     }
 
     public function test_a_post_can_only_have_one_answer()
@@ -38,7 +37,5 @@ class MarkCommentAsAnswerTest extends TestCase
         $this->assertFalse($comments->first()->fresh()->answer);
 
         $this->assertTrue($comments->last()->fresh()->answer);
-
-
     }
 }
