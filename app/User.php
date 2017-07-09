@@ -35,6 +35,16 @@ class User extends Authenticatable
 
     public function comments()
     {
-        return $this->hasMany(Comments::class);
+        return $this->hasMany(Comment::class);
+    }
+
+
+    public function comment(Post $post, $message)
+    {
+        $comment = Comment::create([
+            'comment' => $message,
+            'post_id' => $post->id,
+            'user_id' => $this->id,
+        ]);
     }
 }

@@ -20,7 +20,6 @@ class WriteCommentTest extends FeaturesTestCase
             ->type('Un comentario','comment')
             ->press('Publicar comentario');
 
-
         $this->seeInDatabase('comments', [
            'comment' => 'Un comentario',
             'user_id' =>$this->defaultUser()->id,
@@ -28,7 +27,7 @@ class WriteCommentTest extends FeaturesTestCase
         ]);
 
 
-        $this->seePageIs($post-url);
+        $this->seePageIs($post->url);
 
     }
 }
