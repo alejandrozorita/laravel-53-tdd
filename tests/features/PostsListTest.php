@@ -5,23 +5,20 @@ use Carbon\Carbon;
 
 class PostsListTest extends FeaturesTestCase
 {
-
-    function test_a_user_can_see_the_posts_list_and_go_to_the_details()
+    public function test_a_user_can_see_the_posts_list_and_go_to_the_details()
     {
         $post = $this->createPost([
-            'title' => '¿Debo usar Laravel 5.3 o 5.1 LTS?'
+            'title' => '¿Debo usar Laravel 5.3 o 5.1 LTS?',
         ]);
 
-		$this->visit('/')
+        $this->visit('/')
         ->seeInElement('h1', 'Posts')
         ->see($post->title)
         ->click($post->title)
         ->seePageIs($post->url);
     }
 
-
-
-    function test_the_post_are_paginated()
+    public function test_the_post_are_paginated()
     {
 
         // Having
@@ -30,13 +27,12 @@ class PostsListTest extends FeaturesTestCase
             'created_at'    => Carbon::now()->subDay(2),
         ]);
 
-
         factory(\App\Post::class)->times(15)->create([
             'created_at'    => Carbon::now()->subDay(),
         ]);
 
         $last = factory(\App\Post::class)->create([
-            'title' => 'Post más reciente',
+            'title'         => 'Post más reciente',
             'created_at'    => Carbon::now(),
         ]);
 
@@ -46,6 +42,5 @@ class PostsListTest extends FeaturesTestCase
             ->click('2')
             ->see($first->title)
             ->dontSee($last->title);
-
     }
 }

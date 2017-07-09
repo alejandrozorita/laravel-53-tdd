@@ -14,8 +14,8 @@ class CreatePostController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request,[
-           'title' => 'required',
+        $this->validate($request, [
+           'title'    => 'required',
             'content' => 'required',
         ]);
 
@@ -23,7 +23,7 @@ class CreatePostController extends Controller
 
         auth()->user()->posts()->save($post);
 
-        return 'post' . $post->title;
+        return 'post'.$post->title;
 
         return view('posts.create', compact('post'));
     }

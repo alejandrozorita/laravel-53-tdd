@@ -17,8 +17,8 @@ class ShowPostTest extends FeaturesTestCase
         ]);
 
         $post = $this->createPost([
-            'title' => 'Este es el título del post',
-            'content' => 'Este es el contenido del post',
+            'title'       => 'Este es el título del post',
+            'content'     => 'Este es el contenido del post',
             'user_id'     => $user->id,
         ]);
 
@@ -30,8 +30,7 @@ class ShowPostTest extends FeaturesTestCase
         ->see('Alejandro Zorit');
     }
 
-
-    function test_old_are_redirected()
+    public function test_old_are_redirected()
     {
         // Having
 
@@ -46,6 +45,4 @@ class ShowPostTest extends FeaturesTestCase
         $this->visit($url)
             ->seePageIs($post->url);
     }
-
-
 }

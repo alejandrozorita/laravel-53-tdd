@@ -9,7 +9,7 @@ class PostModelTest extends TestCase
      *
      * @return void
      */
-    function test_adding_a_title_generate_a_slug()
+    public function test_adding_a_title_generate_a_slug()
     {
         $post = new Post([
             'title' => 'Como instalar laravel',
@@ -18,8 +18,7 @@ class PostModelTest extends TestCase
         $this->assertSame('como-instalar-laravel', $post->slug);
     }
 
-
-    function test_editing_the_title_changes_the_slug()
+    public function test_editing_the_title_changes_the_slug()
     {
         $post = new Post([
             'title' => 'Como instalar laravel',
