@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -44,5 +45,11 @@ class User extends Authenticatable
             'post_id' => $post->id,
             'user_id' => $this->id,
         ]);
+    }
+
+
+    public function owns(Model $model)
+    {
+        return $this->id === $model->user_id;
     }
 }

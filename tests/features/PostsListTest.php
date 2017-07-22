@@ -27,6 +27,7 @@ class PostsListTest extends FeaturesTestCase
             'created_at'    => Carbon::now()->subDay(2),
         ]);
 
+        // Creamos 15 entre medias
         factory(\App\Post::class)->times(15)->create([
             'created_at'    => Carbon::now()->subDay(),
         ]);
