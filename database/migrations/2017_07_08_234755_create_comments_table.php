@@ -24,6 +24,8 @@ class CreateCommentsTable extends Migration
             $table->unsignedInteger('post_id')->unsigned();
             $table->foreign('post_id')->references('id')->on('posts');
 
+
+
             $table->timestamps();
         });
     }

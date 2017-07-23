@@ -18,4 +18,19 @@
     {!! Form::submit('Publicar comentario') !!}
 
     {!! Form::close() !!}
+
+
+
+    @foreach($post->comments as $comment)
+        <article class="{!! $comment->answer ? 'answer' : ''!!}">
+            <p>{!! $comment->comment !!}</p>
+            {!! Form::open(['route' => ['comments.accept', $comment], 'method' => 'POST']) !!}
+
+            {!! Form::submit('Aceptar respuesta') !!}
+
+            {!! Form::close() !!}
+        </article>
+
+    @endforeach
+
 @endsection
